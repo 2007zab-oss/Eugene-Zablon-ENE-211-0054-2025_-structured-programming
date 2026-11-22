@@ -3,10 +3,9 @@
 
 int main()
 {
+    int a[100], n, i, j, count;
 
-    int a[100], n, i;
-
-    printf("Input the number of elements to store in the array: ");
+    printf("Input the number of elements: ");
     scanf("%d", &n);
 
     for(i = 0; i < n; i++)
@@ -15,14 +14,21 @@ int main()
         scanf("%d", &a[i]);
     }
 
-    printf("The values stored in the array are: ");
+    printf("The unique elements found in the array are: ");
+
     for(i = 0; i < n; i++)
-        printf("%d ", a[i]);
+    {
+        count = 0;
 
-    printf("\nThe values stored in reverse are: ");
-    for(i = n - 1; i >= 0; i--)
-        printf("%d ", a[i]);
+        for(j = 0; j < n; j++)
+        {
+            if(a[i] == a[j])
+                count++;
+        }
 
+        if(count == 1)
+            printf("%d ", a[i]);
+    }
 
     return 0;
 }
